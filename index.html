@@ -1,4 +1,4 @@
-<!DOCTYPEDOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -12,40 +12,128 @@
             --light: #f9f9f9;
         }
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: var(--light);
             color: var(--dark);
+            margin: 0;
+            padding: 20px;
             text-align: center;
-            padding: 50px;
+        }
+        header {
+            background-color: var(--secondary);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            width: 200px;
+        }
+        .candy-icon {
+            font-size: 50px;
+            margin-bottom: 10px;
         }
         .btn {
             background-color: var(--primary);
             color: white;
             border: none;
-            padding: 15px 30px;
-            font-size: 18px;
+            padding: 10px 20px;
+            font-size: 16px;
             cursor: pointer;
             border-radius: 5px;
-            margin: 10px;
-            transition: 0.3s;
+            margin-top: 15px;
+            width: 100%;
+            font-weight: bold;
+            transition: background 0.2s;
         }
         .btn:hover {
             background-color: var(--secondary);
+        }
+        .checkout-btn {
+            background-color: #2ecc71;
+            margin-top: 30px;
+            padding: 15px 40px;
+            font-size: 18px;
+            width: auto;
+        }
+        .checkout-btn:hover {
+            background-color: #27ae60;
+        }
+        #cart-status {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 20px;
+            color: var(--secondary);
         }
     </style>
 </head>
 <body>
 
-    <h1>Welcome to Candy Co.!</h1>
-    <p>Click the button below to see the magic happen.</p>
+    <header>
+        <h1>🍬 Sweet Treats Candy Co. 🍭</h1>
+        <p>Your online destination for the finest sweets!</p>
+    </header>
 
-    <!-- The Button -->
-    <button class="btn" onclick="celebrate()">Click Me!</button>
+    <div class="container">
+        <!-- Candy Item 1 -->
+        <div class="card">
+            <div class="candy-icon">Gummy Bears</div>
+            <h3>Gummy Bears</h3>
+            <p>$4.99</p>
+            <button class="btn" onclick="addToCart('Gummy Bears')">Add to Cart</button>
+        </div>
 
-    <!-- JavaScript code placed inside the file ensures it works instantly -->
+        <!-- Candy Item 2 -->
+        <div class="card">
+            <div class="candy-icon">Lollipops</div>
+            <h3>Lollipops</h3>
+            <p>$2.49</p>
+            <button class="btn" onclick="addToCart('Lollipops')">Add to Cart</button>
+        </div>
+
+        <!-- Candy Item 3 -->
+        <div class="card">
+            <div class="candy-icon">Chocolates</div>
+            <h3>Chocolates</h3>
+            <p>$5.99</p>
+            <button class="btn" onclick="addToCart('Chocolates')">Add to Cart</button>
+        </div>
+    </div>
+
+    <!-- Cart Info & Checkout -->
+    <div id="cart-status">Your cart is empty.</div>
+    <button class="btn checkout-btn" onclick="checkout()">Proceed to Checkout</button>
+
+    <!-- This script makes the buttons work perfectly -->
     <script>
-        function celebrate() {
-            alert("🍬 Yay! The button is officially working on GitHub Pages!");
+        let cartCount = 0;
+
+        function addToCart(candyName) {
+            cartCount++;
+            document.getElementById('cart-status').innerText = "🛒 Added " + candyName + "! Total items in cart: " + cartCount;
+            console.log(candyName + " added to cart.");
+        }
+
+        function checkout() {
+            if (cartCount === 0) {
+                alert("Your cart is empty! Add some sweet treats before checking out.");
+            } else {
+                alert("🍭 Thank you for shopping with Sweet Treats Candy Co.! Processing your " + cartCount + " items...");
+                cartCount = 0;
+                document.getElementById('cart-status').innerText = "Your cart is empty.";
+            }
         }
     </script>
 
