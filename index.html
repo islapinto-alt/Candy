@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPEDOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -11,314 +11,43 @@
             --dark: #2c3e50;
             --light: #f9f9f9;
         }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
         body {
+            font-family: Arial, sans-serif;
             background-color: var(--light);
             color: var(--dark);
-        }
-
-        /* Navigation Bar */
-        header {
-            background-color: white;
-            padding: 15px 30px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-            color: var(--primary);
-            cursor: pointer;
-        }
-
-        nav button {
-            background: none;
-            border: none;
-            font-size: 16px;
-            margin: 0 15px;
-            cursor: pointer;
-            color: var(--dark);
-            font-weight: 600;
-            transition: color 0.2s;
-        }
-
-        nav button:hover, nav button.active {
-            color: var(--primary);
-        }
-
-        .cart-status {
-            background: var(--secondary);
-            color: white;
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 14px;
-        }
-
-        /* View Containers */
-        .view {
-            display: none;
-            max-width: 1000px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-
-        .view.active {
-            display: block;
-        }
-
-        /* Home Page */
-        .hero {
             text-align: center;
-            padding: 60px 20px;
-            background: linear-gradient(135deg, #ffebf4 0%, #f3e5f5 100%);
-            border-radius: 20px;
+            padding: 50px;
         }
-
-        .hero h1 {
-            font-size: 42px;
-            margin-bottom: 15px;
-            color: var(--secondary);
-        }
-
-        /* Candy Grid */
-        .candy-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 25px;
-            margin-top: 20px;
-        }
-
-        .candy-card {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            transition: transform 0.2s;
-            border: 1px solid #eee;
-        }
-
-        .candy-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .candy-img-placeholder {
-            height: 180px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 50px;
-            background-color: #fff0f5;
-        }
-
-        .candy-info {
-            padding: 20px;
-        }
-
-        .candy-title {
-            font-size: 20px;
-            font-weight: bold;
-            margin-bottom: 8px;
-        }
-
-        .candy-desc {
-            font-size: 14px;
-            color: #7f8c8d;
-            margin-bottom: 15px;
-            font-style: italic;
-        }
-
-        .candy-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .price {
-            font-size: 18px;
-            font-weight: bold;
-            color: var(--secondary);
-        }
-
-        .btn-add {
+        .btn {
             background-color: var(--primary);
             color: white;
             border: none;
-            padding: 8px 16px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: 600;
-        }
-
-        .btn-add:hover {
-            background-color: #ff4da6;
-        }
-
-        /* Checkout View */
-        .checkout-box {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            text-align: center;
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        .btn-checkout {
-            background-color: #2ecc71;
-            color: white;
-            border: none;
-            padding: 12px 30px;
+            padding: 15px 30px;
             font-size: 18px;
-            border-radius: 8px;
             cursor: pointer;
-            margin-top: 20px;
-            width: 100%;
-            font-weight: bold;
+            border-radius: 5px;
+            margin: 10px;
+            transition: 0.3s;
         }
-
-        /* Modal / Surprise Overlay */
-        .modal-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            color: white;
-            padding: 20px;
-        }
-
-        .modal-content {
-            text-align: center;
-            max-width: 600px;
-        }
-
-        .modal-content img {
-            width: 100%;
-            max-width: 500px;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(255,255,255,0.2);
-            margin-bottom: 25px;
-        }
-
-        .modal-text {
-            font-size: 28px;
-            font-weight: bold;
-            letter-spacing: 1px;
-            color: #ff69b4;
-            text-transform: uppercase;
-            animation: pulse 1.5s infinite;
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.03); }
-            100% { transform: scale(1); }
+        .btn:hover {
+            background-color: var(--secondary);
         }
     </style>
 </head>
 <body>
 
-    <!-- Global Header & Cart Track -->
-    <header>
-        <div class="logo" onclick="switchView('home')">🍬 Sweet Treats Co.</div>
-        <nav>
-            <button id="nav-home" class="active" onclick="switchView('home')">Home</button>
-            <button id="nav-candy" onclick="switchView('candy')">Candy Shop</button>
-            <button id="nav-checkout" onclick="switchView('checkout')">Checkout</button>
-        </nav>
-        <div class="cart-status">Cart: <span id="cart-count">0</span> items ($<span id="cart-total">0.00</span>)</div>
-    </header>
+    <h1>Welcome to Candy Co.!</h1>
+    <p>Click the button below to see the magic happen.</p>
 
-    <!-- Home View -->
-    <div id="view-home" class="view active">
-        <div class="hero">
-            <h1>Welcome to the Finest Confectionery</h1>
-            <p style="color: #666; margin-bottom: 20px;">We make sweets that you won't find anywhere else. Literally anywhere.</p>
-            <button class="btn-add" style="padding: 12px 24px; font-size: 16px;" onclick="switchView('candy')">Browse Selection</button>
-        </div>
-    </div>
+    <!-- The Button -->
+    <button class="btn" onclick="celebrate()">Click Me!</button>
 
-    <!-- Candy Shop View -->
-    <div id="view-candy" class="view">
-        <h2 style="margin-bottom: 20px; text-align: center;">Our Unusual Batches</h2>
-        <div class="candy-grid">
-            <!-- Candy 1 -->
-            <div class="candy-card">
-                <div class="candy-img-placeholder">🍬</div>
-                <div class="candy-info">
-                    <div class="candy-title">Whispering Hard Candy</div>
-                    <div class="candy-desc">They make faint rhythmic noises when left entirely alone in a dark room.</div>
-                    <div class="candy-footer">
-                        <div class="price">$3.50</div>
-                        <button class="btn-add" onclick="addToCart(3.50)">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-            <!-- Candy 2 -->
-            <div class="candy-card">
-                <div class="candy-img-placeholder">🍫</div>
-                <div class="candy-info">
-                    <div class="candy-title">Static Chocolate Bar</div>
-                    <div class="candy-desc">Feels slightly fuzzy to the touch. Leaves a faint metallic aftertaste.</div>
-                    <div class="candy-footer">
-                        <div class="price">$4.25</div>
-                        <button class="btn-add" onclick="addToCart(4.25)">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-            <!-- Candy 3 -->
-            <div class="candy-card">
-                <div class="candy-img-placeholder">🍭</div>
-                <div class="candy-info">
-                    <div class="candy-title">Never-Ending Swirl</div>
-                    <div class="candy-desc">Stare too deep into the pattern and you might miss your stop.</div>
-                    <div class="candy-footer">
-                        <div class="price">$2.99</div>
-                        <button class="btn-add" onclick="addToCart(2.99)">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Checkout View -->
-    <div id="view-checkout" class="view">
-        <div class="checkout-box">
-            <h2 style="margin-bottom: 15px;">Order Summary</h2>
-            <p style="font-size: 18px; margin-bottom: 10px;">Total Items: <span id="summary-count">0</span></p>
-            <p style="font-size: 22px; font-weight: bold; color: var(--secondary);">Total Price: $<span id="summary-total">0.00</span></p>
-            <button class="btn-checkout" onclick="triggerSurprise()">Place Order & Secure Delivery</button>
-        </div>
-    </div>
-
-    <!-- The Surprise Overlay -->
-    <div id="van-modal" class="modal-overlay">
-        <div class="modal-content">
-            <!-- Using a standard open-source picture of a plain cargo van -->
-            <img src="https://unsplash.com" alt="White Delivery Van">
-            <div class="modal-text">Alright, hop in! Let's get your candy.</div>
-        </div>
-    </div>
-
+    <!-- JavaScript code placed inside the file ensures it works instantly -->
     <script>
-        let cartItems = 0;
+        function celebrate() {
+            alert("🍬 Yay! The button is officially working on GitHub Pages!");
+        }
+    </script>
+
+</body>
+</html>
